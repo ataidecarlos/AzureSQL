@@ -22,7 +22,6 @@ SELECT
     object_id,
     name AS 'index_name',
     index_id,
-    type,
     type_desc
 FROM sys.indexes
 WHERE object_id IN (SELECT object_id FROM sys.objects WHERE type = 'U')
