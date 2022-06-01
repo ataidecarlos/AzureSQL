@@ -1,3 +1,3 @@
 # AzureSQL
 
-T-SQL code samples
+DO NOT use this code without testing first!
