@@ -1,3 +1,3 @@
 # AzureSQL
 
-DO NOT use this code without testing first!
+Please note, this code was tested only on my environment, please do not use it in Production until you have tested it in your non-production environment first.
