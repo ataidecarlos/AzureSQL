@@ -1,3 +1,9 @@
+-- To find object_ids
+SELECT name, object_id FROM sys.objects WHERE [type] = 'U'
+
+
+
+
 -- Get the fragmentation for all objects in the database
 EXEC extras.GetIndexFragmentation @mode = 'LIMITED', @user_defined = 0, @cleanup = 1
 
