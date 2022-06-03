@@ -97,7 +97,7 @@ BEGIN
     SET @SQL = N'INSERT INTO extras.index_physical_stats (object_name,object_id,index_name,index_id,type_desc,partition_number,page_count,avg_fragmentation_in_percent,avg_page_space_used_in_percent,capture_time,capture_mode) '
     SET @SQL = @SQL + N' SELECT OBJ.object_name, ST.object_id, OBJ.index_name, ST.index_id, ST.index_type_desc, ST.partition_number, ST.page_count, ST.avg_fragmentation_in_percent, ST.avg_page_space_used_in_percent, @capture_time, @mode '
     SET @SQL = @SQL + N' FROM sys.dm_db_index_physical_stats(DB_ID(), @object_id, @index_id, @partition_number, @mode) ST '
-    SET @SQL = @SQL + N' JOIN #objects OBJ ON ST.object_id = OBJ.object_id AND ST.index_id = OBJ.index_id'
+    SET @SQL = @SQL + N' JOIN #objects OBJ ON ST.object_id = OBJ.object_id AND ST.index_id = OBJ.index_id AND ST.partition_number = OBJ.partition_number'
 
     EXECUTE sp_executesql @SQL, @SQLDefinition, @object_id, @index_id, @partition_number, @capture_time, @mode
 
